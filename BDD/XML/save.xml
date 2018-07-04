@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Manager xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/lib">
+  <Factions>
+    <Faction>
+      <Batiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des soldats</Description>
+            <Nom>Caserne</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>hommes/hom_caserne.jpg</Image>
+            <Nom>Caserne du Gondor</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des unités capable d'attaquer à distance</Description>
+            <Nom>Archerie</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>hommes/hom_archerie.jpg</Image>
+            <Nom>Archerie du Gondor</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des engins de siège</Description>
+            <Nom>Machines de guerre</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>default.jpg</Image>
+            <Nom>Ecurie</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter les héros et les bâtisseurs</Description>
+            <Nom>Forteresse</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>hommes/hom_forteresse.jpg</Image>
+            <Nom>Forteresse du Gondor</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+      </Batiments>
+      <Image>f_hommes.jpg</Image>
+      <Nom>Hommes</Nom>
+      <mBatiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des soldats</Description>
+            <Nom>Caserne</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>hommes/hom_caserne.jpg</Image>
+            <Nom>Caserne du Gondor</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des unités capable d'attaquer à distance</Description>
+            <Nom>Archerie</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>hommes/hom_archerie.jpg</Image>
+            <Nom>Archerie du Gondor</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des engins de siège</Description>
+            <Nom>Machines de guerre</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>default.jpg</Image>
+            <Nom>Ecurie</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter les héros et les bâtisseurs</Description>
+            <Nom>Forteresse</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>hommes/hom_forteresse.jpg</Image>
+            <Nom>Forteresse du Gondor</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+      </mBatiments>
+      <mNom>Hommes</mNom>
+    </Faction>
+    <Faction>
+      <Batiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des soldats</Description>
+            <Nom>Caserne</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>default.jpg</Image>
+            <Nom>Antre des araignées</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+      </Batiments>
+      <Image>f_gobelins.jpg</Image>
+      <Nom>Gobelins</Nom>
+      <mBatiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des soldats</Description>
+            <Nom>Caserne</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>default.jpg</Image>
+            <Nom>Antre des araignées</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+      </mBatiments>
+      <mNom>Gobelins</mNom>
+    </Faction>
+    <Faction>
+      <Batiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des soldats</Description>
+            <Nom>Caserne</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>2</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>5000</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>45</TpsDeConstruct>
+                <UnitesRecrutables>Epéistes orcs</UnitesRecrutables>
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes>Flèches enflammées</BonusOctroyes>
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>7000</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>true</TourDeDefense>
+                <TpsDeConstruct>30</TpsDeConstruct>
+                <UnitesRecrutables>Epéistes orcs, Archers orcs</UnitesRecrutables>
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>default.jpg</Image>
+            <Nom>Puits à Orcs</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description i:nil="true" />
+            <Nom>Caserne d'élite</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>default.jpg</Image>
+            <Nom>Cage à trolls</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+      </Batiments>
+      <Image>f_orcs.jpg</Image>
+      <Nom>Mordor</Nom>
+      <mBatiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des soldats</Description>
+            <Nom>Caserne</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>2</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>5000</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>45</TpsDeConstruct>
+                <UnitesRecrutables>Epéistes orcs</UnitesRecrutables>
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes>Flèches enflammées</BonusOctroyes>
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>7000</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>true</TourDeDefense>
+                <TpsDeConstruct>30</TpsDeConstruct>
+                <UnitesRecrutables>Epéistes orcs, Archers orcs</UnitesRecrutables>
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>default.jpg</Image>
+            <Nom>Puits à Orcs</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description i:nil="true" />
+            <Nom>Caserne d'élite</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>default.jpg</Image>
+            <Nom>Cage à trolls</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+      </mBatiments>
+      <mNom>Mordor</mNom>
+    </Faction>
+    <Faction>
+      <Batiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <Image>f_elfes.jpg</Image>
+      <Nom>Elfes</Nom>
+      <mBatiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <mNom>Elfes</mNom>
+    </Faction>
+    <Faction>
+      <Batiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des soldats</Description>
+            <Nom>Caserne</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image i:nil="true" />
+            <Nom>Hall des guerriers</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+      </Batiments>
+      <Image>f_nains.jpg</Image>
+      <Nom>Nains</Nom>
+      <mBatiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter des soldats</Description>
+            <Nom>Caserne</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image i:nil="true" />
+            <Nom>Hall des guerriers</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+      </mBatiments>
+      <mNom>Nains</mNom>
+    </Faction>
+    <Faction>
+      <Batiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter les héros et les bâtisseurs</Description>
+            <Nom>Forteresse</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>isengard/ise_forteresse.jpg</Image>
+            <Nom>Forteresse de l'Isengard</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+      </Batiments>
+      <Image i:nil="true" />
+      <Nom>Isengard</Nom>
+      <mBatiments xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+          <d4p1:Key>
+            <Description>Permet de recruter les héros et les bâtisseurs</Description>
+            <Nom>Forteresse</Nom>
+          </d4p1:Key>
+          <d4p1:Value>
+            <Count>1</Count>
+            <Etats>
+              <EtatBatiment>
+                <Ameliorations i:nil="true" />
+                <BonusOctroyes i:nil="true" />
+                <Capacite>0</Capacite>
+                <Cout>0</Cout>
+                <Description i:nil="true" />
+                <Pdv>0</Pdv>
+                <Raccourci i:nil="true" />
+                <TourDeDefense>false</TourDeDefense>
+                <TpsDeConstruct>0</TpsDeConstruct>
+                <UnitesRecrutables i:nil="true" />
+                <Utilite i:nil="true" />
+              </EtatBatiment>
+            </Etats>
+            <Image>isengard/ise_forteresse.jpg</Image>
+            <Nom>Forteresse de l'Isengard</Nom>
+          </d4p1:Value>
+        </d4p1:KeyValueOfTypeBatimentBatimentokoT85Uk>
+      </mBatiments>
+      <mNom>Isengard</mNom>
+    </Faction>
+  </Factions>
+  <TypeBatiments>
+    <TypeBatiment>
+      <Description>Permet de recruter des soldats</Description>
+      <Nom>Caserne</Nom>
+    </TypeBatiment>
+    <TypeBatiment>
+      <Description i:nil="true" />
+      <Nom>Caserne d'élite</Nom>
+    </TypeBatiment>
+    <TypeBatiment>
+      <Description>Permet de recruter des unités capable d'attaquer à distance</Description>
+      <Nom>Archerie</Nom>
+    </TypeBatiment>
+    <TypeBatiment>
+      <Description>Permet de recruter les héros et les bâtisseurs</Description>
+      <Nom>Forteresse</Nom>
+    </TypeBatiment>
+    <TypeBatiment>
+      <Description>Permet l'amélioration des armes et des armures</Description>
+      <Nom>Forge</Nom>
+    </TypeBatiment>
+    <TypeBatiment>
+      <Description>Permet de recruter des engins de siège</Description>
+      <Nom>Machines de guerre</Nom>
+    </TypeBatiment>
+  </TypeBatiments>
+</Manager>

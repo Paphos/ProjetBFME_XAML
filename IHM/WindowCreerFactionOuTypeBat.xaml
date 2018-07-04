@@ -1,0 +1,18 @@
+﻿<Window x:Class="IHM.WindowCreerFactionOuTypeBat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="" Height="120" Width="250">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock Name="TextBlockLabel"/>
+            <Border Name="BorderTextBox" BorderThickness="2">
+                <TextBox Name="TextBoxNom" TextChanged="TextBoxNom_TextChanged_1"/>
+            </Border>
+            <TextBlock Name="TextBoxInfo"/>
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Name="ButtonAjouter" Content="Ajouter" Width="100" Margin="5" Click="ButtonAjouter_Click" IsEnabled="False"/>
+                <Button Name="ButtonAnnuler" Content="Annuler" Width="100" Margin="5" Click="ButtonAnnuler_Click"/>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>

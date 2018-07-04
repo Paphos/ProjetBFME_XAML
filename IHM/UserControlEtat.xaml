@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="IHM.UserControlEtat"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Name="root"
+             xmlns:local="clr-namespace:IHM"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <local:StringToIcone x:Key="StringToIcone"/>
+        <local:ElementModifiable_Visibility x:Key="ToggleButton_To_Visibility"/>
+
+    </UserControl.Resources>
+
+    <Grid Name="GridUC" MinHeight="25" DataContextChanged="Grid_DataContextChanged_1" ToolTip="{Binding ElementName=root, Path=Label}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <Image Grid.Column="0" Height="20" Width="20" Source="{Binding ElementName=root, Path=Icone, Converter={StaticResource StringToIcone}}" />
+        <TextBlock Grid.Column="1" Name="TextBlockEtat" TextWrapping="Wrap" Margin="5,0,0,0" Foreground="{StaticResource foreground_base_selected}" FontSize="14" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Name="TextBoxEtat" Visibility="Collapsed" Margin="5,0,0,0" FontSize="14" VerticalAlignment="Center"
+                     KeyDown="TextBoxEtat_KeyDown_1" LostKeyboardFocus="TextBoxEtat_LostKeyboardFocus_1"/>
+        <ToggleButton Grid.Column="2" Name="ToggleButtonEdit" Style="{StaticResource BoutonEdit}" HorizontalAlignment="Right"
+                      Checked="ToggleButtonEdit_Checked" Visibility="{Binding IsModifiable, ElementName=root, Converter={StaticResource ToggleButton_To_Visibility}}"/>
+    </Grid>
+</UserControl>

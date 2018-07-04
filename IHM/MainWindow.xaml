@@ -1,0 +1,487 @@
+﻿<Window x:Class="IHM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="mWindow"
+        xmlns:local="clr-namespace:IHM"
+        Title="BFME II - Master Details" Height="600" Width="855"
+        FontFamily="Constantia">
+
+    <Window.Resources>
+        <local:MultiBinding_UserControl_IsActivé x:Key="MultiBinding_UserControl_IsActivé"/>
+        <local:MultiBinding_ListBoxItem_IsEnabled x:Key="MultiBinding_ListBoxItem_IsEnabled"/>
+        <local:ElementModifiable_Visibility x:Key="ToggleButton_To_Visibility"/>
+        <local:StringToImageConverter x:Key="StringToImageConverter"/>
+        <local:DataContext_To_Visibility x:Key="DataContext_To_Visibility"/>
+        
+        <Style x:Key="styleBoutonNoirPlus" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Canvas Width="30" Height="30">
+                            <Ellipse Height="30" Width="30" Fill="#FF766650"/>
+                            <Ellipse Name="EllipseInside" Height="27.5" Width="27.5" Fill="Black"
+                         Canvas.Top="1.25" Canvas.Left="1.25"/>
+                            <Rectangle Height="20" Width="5" Fill="#FF71C0DA"
+                           Canvas.Left="12.5" Canvas.Top="5"/>
+                            <Rectangle Height="5" Width="20" Fill="#FF71C0DA"
+                           Canvas.Top="12.5" Canvas.Left="5"/>
+                        </Canvas>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="EllipseInside" Property="Fill" Value="#FF515050"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="styleBoutonNoirMoins" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Canvas Width="30" Height="30">
+                            <Ellipse Height="30" Width="30" Fill="#FF766650"/>
+                            <Ellipse Name="EllipseInside" Height="27.5" Width="27.5" Fill="Black"
+                                     Canvas.Top="1.25" Canvas.Left="1.25"/>
+                            <Rectangle Height="5" Width="20" Fill="Red"
+                                       Canvas.Top="12.5" Canvas.Left="5"/>
+                        </Canvas>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="EllipseInside" Property="Fill" Value="#FF515050"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="ClickMode" Value="Press"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Grid Name="RadioButtonGrid" Width="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}"
+                              Background="{StaticResource grad_base}">
+                            <Border BorderThickness="1" BorderBrush="#FF30462E" >
+                                <Border BorderThickness="2" BorderBrush="#FF284D2D">
+                                    <TextBlock Name="RadioButtonTextBlock" Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Foreground="{StaticResource foreground_base}" FontSize="15" FontWeight="Bold"/>
+                                </Border>
+                            </Border>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="RadioButtonTextBlock" Property="Foreground" Value="{StaticResource foreground_base_selected}"/>
+                                <Setter TargetName="RadioButtonGrid" Property="Background" Value="{StaticResource grad_base_selected}"/>
+
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="RadioButtonTextBlock" Property="Foreground" Value="{StaticResource foreground_disabled}"/>
+                                <Setter TargetName="RadioButtonGrid" Property="Background" Value="{StaticResource grad_base_disabled}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="styleButtonModifier" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Grid Name="ToggleButtonGrid" Height="30" Background="{StaticResource grad_base}">
+                            <Border Name="BorderExterieure" BorderThickness="1" BorderBrush="#FF30462E" >
+                                <Border Name="BorderInterieure" BorderThickness="2" BorderBrush="#FF284D2D">
+                                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Image Height="20" Width="20" Source="images/icones/Modifier.png" />
+                                        <TextBlock Name="ToggleButtonTextBlock" Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           Foreground="{StaticResource foreground_base}" FontSize="15" Margin="5,0,10,0"/>
+                                    </WrapPanel>
+                                </Border>
+                            </Border>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ToggleButtonTextBlock" Property="Foreground" Value="{StaticResource foreground_base_selected}"/>
+                                <Setter TargetName="ToggleButtonGrid" Property="Background" Value="{StaticResource grad_base_selected}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="ToggleButtonTextBlock" Property="Foreground" Value="{StaticResource foreground_modifiable_selected}"/>
+                                <Setter TargetName="ToggleButtonGrid" Property="Background" Value="{StaticResource grad_modifiable_selected}"/>
+                                <Setter TargetName="BorderExterieure" Property="BorderBrush" Value="{StaticResource foreground_modifiable_selected}"/>
+                                <Setter TargetName="BorderInterieure" Property="BorderBrush" Value="{StaticResource foreground_modifiable_selected}"/>
+
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="styleButtonSauvegarder" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Name="ButtonGrid" Height="30" Background="{StaticResource grad_base}">
+                            <Border BorderThickness="1" BorderBrush="#FF30462E" >
+                                <Border BorderThickness="2" BorderBrush="#FF284D2D">
+                                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Image Height="20" Width="20" Source="images/icones/Sauvegarder.png" />
+                                        <TextBlock Name="ButtonTextBlock" Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           Foreground="{StaticResource foreground_base}" FontSize="15" Margin="5,0,10,0"/>
+                                    </WrapPanel>
+                                </Border>
+                            </Border>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonTextBlock" Property="Foreground" Value="{StaticResource foreground_base_selected}"/>
+                                <Setter TargetName="ButtonGrid" Property="Background" Value="{StaticResource grad_base_selected}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="styleButtonImporter" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Name="ButtonGrid" Height="30" Background="{StaticResource grad_base}">
+                            <Border BorderThickness="1" BorderBrush="#FF30462E" >
+                                <Border BorderThickness="2" BorderBrush="#FF284D2D">
+                                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Image Height="20" Width="20" Source="images/icones/Importer.png" />
+                                        <TextBlock Name="ButtonTextBlock" Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           Foreground="{StaticResource foreground_base}" FontSize="15" Margin="5,0"/>
+                                    </WrapPanel>
+                                </Border>
+                            </Border>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonTextBlock" Property="Foreground" Value="{StaticResource foreground_base_selected}"/>
+                                <Setter TargetName="ButtonGrid" Property="Background" Value="{StaticResource grad_base_selected}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="IsEnabled">
+                <Setter.Value>
+                    <MultiBinding Converter="{StaticResource MultiBinding_ListBoxItem_IsEnabled}">
+                        <Binding ElementName="ToggleButtonModifier" Path="IsChecked"/>
+                        <Binding ElementName="ListBoxFactions" Path="SelectedItem"/>
+                        <Binding/>
+                    </MultiBinding>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <local:UserControlListBoxItem Name="UC" Item="{Binding}" CurrentWindow="{Binding ElementName=mWindow}"
+                                                      IsModifiable="{Binding IsChecked, ElementName=ToggleButtonModifier}"
+                                                      SelectedFaction="{Binding SelectedItem, ElementName=ListBoxFactions}">
+                            <local:UserControlListBoxItem.IsActivé>
+                                <MultiBinding Converter="{StaticResource MultiBinding_UserControl_IsActivé}">
+                                    <Binding ElementName="ListBoxFactions" Path="SelectedItem"/>
+                                    <Binding/>
+                                </MultiBinding>
+                            </local:UserControlListBoxItem.IsActivé>
+                        </local:UserControlListBoxItem>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="UC" Property="IsSelected" Value="true"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Storyboard x:Key="storyboard_popup">
+            <BooleanAnimationUsingKeyFrames
+                Storyboard.TargetName="popup_xml"
+                Storyboard.TargetProperty="IsOpen"
+                FillBehavior="Stop">
+                <DiscreteBooleanKeyFrame KeyTime="0:0:0.0" Value="True"/>
+                <DiscreteBooleanKeyFrame KeyTime="0:0:2.0" Value="False"/>
+            </BooleanAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="images/background.jpg"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Margin="20,0,20,20">
+            <Grid DockPanel.Dock="Top" Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Margin="8" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Foreground="White" FontSize="20" FontWeight="Bold">
+                    La Bataille pour la Terre du Milieu II
+                </TextBlock>
+                <ToggleButton Name="ToggleButtonModifier" Style="{StaticResource styleButtonModifier}" Grid.Column="1" Content="MODIFIER" Margin="5" Click="ToggleButtonModifier_Click"/>
+                <Button Name="ButtonSauvegarder" Style="{StaticResource styleButtonSauvegarder}" Grid.Column="2" Content="SAUVEGARDER" Margin="5" Click="ButtonSauvegarder_Click"/>
+                <Popup Name="popup_xml" PlacementTarget="{Binding ElementName=ButtonSauvegarder}" Placement="Bottom" AllowsTransparency="True" PopupAnimation="Fade">
+                    <Border Background="LightGreen">
+                        <TextBlock Margin="5">Le fichier XML a été sauvegardé avec succès !</TextBlock>
+                    </Border>
+                </Popup>
+            </Grid>
+            <Grid DockPanel.Dock="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="22*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <!-- [0:0] ListBox Factions -->
+                <DockPanel Name="ControlFaction" Margin="0,10,0,0" Grid.Row="0" Grid.Column="0">
+                    <Canvas DockPanel.Dock="Top" Panel.ZIndex="10">
+                        <Button Style="{StaticResource styleBoutonNoirMoins}" Canvas.Left="10" Canvas.Top="2"
+                                Click="Button_Click_SupprFaction" Visibility="{Binding ElementName=ToggleButtonModifier, Path=IsChecked, Converter={StaticResource ToggleButton_To_Visibility}}">
+                            <Button.ToolTip>
+                                <ToolTip>
+                                    <TextBlock>Supprimer la faction sélectionnée</TextBlock>
+                                </ToolTip>
+                            </Button.ToolTip>
+                        </Button>
+                        <Button Style="{StaticResource styleBoutonNoirPlus}" Canvas.Right="10" Canvas.Top="2"
+                                Click="Button_Click_AjouterFaction" Visibility="{Binding ElementName=ToggleButtonModifier, Path=IsChecked, Converter={StaticResource ToggleButton_To_Visibility}}">
+                            <Button.ToolTip>
+                                <ToolTip>
+                                    <TextBlock>Ajouter une nouvelle faction</TextBlock>
+                                </ToolTip>
+                            </Button.ToolTip>
+                        </Button>
+                    </Canvas>
+                    <StackPanel DockPanel.Dock="Top" Margin="25,0" Background="{StaticResource grad_base}">
+                        <TextBlock Foreground="{StaticResource foreground_base_selected}"  Margin="0,7" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   FontSize="15" FontWeight="Bold">
+                                FACTIONS
+                        </TextBlock>
+                    </StackPanel>
+                    <Border Margin="5,0,5,5" BorderThickness="2" BorderBrush="#FF30462E" >
+                        <Border BorderThickness="4" BorderBrush="#FF284D2D">
+                            <ListBox ItemsSource="{Binding Factions}" Name="ListBoxFactions" Background="#FF121313"
+                             SelectionChanged="ListBoxFactions_SelectionChanged_1" Padding="0" BorderThickness="0"
+                             HorizontalContentAlignment="Center"/>
+                        </Border>
+                    </Border>
+                </DockPanel>
+
+                <!-- [0:1] ListBox TypeBatiment -->
+                <DockPanel Name="ControlTypeBat" Margin="0,10,0,0" Grid.Row="0" Grid.Column="1">
+                    <Canvas DockPanel.Dock="Top" Panel.ZIndex="10">
+                        <Button Style="{StaticResource styleBoutonNoirMoins}" Canvas.Left="10" Canvas.Top="2"
+                                Click="Button_Click_SupprTypeBat" Visibility="{Binding ElementName=ToggleButtonModifier, Path=IsChecked, Converter={StaticResource ToggleButton_To_Visibility}}">
+                            <Button.ToolTip>
+                                <ToolTip>
+                                    <TextBlock>Supprimer le type de bâtiment sélectionné</TextBlock>
+                                </ToolTip>
+                            </Button.ToolTip>
+                        </Button>
+                        <Button Style="{StaticResource styleBoutonNoirPlus}" Canvas.Right="10" Canvas.Top="2"
+                                Click="Button_Click_AjouterTypeBat" Visibility="{Binding ElementName=ToggleButtonModifier, Path=IsChecked, Converter={StaticResource ToggleButton_To_Visibility}}">
+                            <Button.ToolTip>
+                                <ToolTip>
+                                    <TextBlock>Ajouter un nouveau type de bâtiment</TextBlock>
+                                </ToolTip>
+                            </Button.ToolTip>
+                        </Button>
+                    </Canvas>
+                    <StackPanel DockPanel.Dock="Top" Margin="25,0" Background="{StaticResource grad_base}">
+                        <TextBlock Foreground="{StaticResource foreground_base_selected}" Margin="0,7" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   FontSize="15" FontWeight="Bold">
+                            BATIMENTS
+                        </TextBlock>
+                    </StackPanel>
+                    <Border Margin="5,0,5,5" BorderThickness="2" BorderBrush="#FF30462E" >
+                        <Border BorderThickness="4" BorderBrush="#FF284D2D">
+                            <ListBox ItemsSource="{Binding TypeBatiments}" Name="ListBoxTypeBat" Background="#FF121313"
+                                     SelectionChanged="ListBoxTypeBat_SelectionChanged_1" Padding="0" Margin="0" BorderThickness="0"
+                                     HorizontalContentAlignment="Stretch">
+
+                            </ListBox>
+                        </Border>
+                    </Border>
+                </DockPanel>
+
+                <!-- [0:2] Head Batiment -->
+                <Grid Name="GridDetails1" Grid.Row="0" Grid.Column="2" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="14*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+                    <Border BorderThickness="2" BorderBrush="#FF30462E" >
+                        <Border BorderThickness="4" BorderBrush="#FF284D2D" Background="Black">
+                            <DockPanel>
+                                <Grid DockPanel.Dock="Bottom" Background="{StaticResource grad_base}" Grid.Row="1" Height="30">
+                                    <TextBlock Name="TextBlockBatimentNom" Foreground="{StaticResource foreground_base_selected}"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"
+                                               Text="{Binding Nom}"/>
+                                    <TextBox Name="TextBoxBatimentNom" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"
+                                             Text="{Binding Nom}" Visibility="Collapsed" KeyDown="TextBoxBatimentNom_KeyDown"
+                                             LostKeyboardFocus="TextBoxBatimentNom_LostKeyboardFocus"/>
+                                    <ToggleButton Name="ToggleButtonEdit" Margin="0,0,20,0" Style="{StaticResource BoutonEdit}" HorizontalAlignment="Right" Checked="ToggleButtonEdit_Checked"
+                                                  Visibility="{Binding IsChecked, ElementName=ToggleButtonModifier, Converter={StaticResource ToggleButton_To_Visibility}}"/>
+                                </Grid>
+                                <Canvas DockPanel.Dock="Bottom" Panel.ZIndex="10">
+                                    <Button Style="{StaticResource styleButtonImporter}" Content="IMPORTER" Width="130"
+                                            Canvas.Bottom="15" Canvas.Right="15" Click="ImporterImg_Batiment_Click"
+                                            Visibility="{Binding IsChecked, ElementName=ToggleButtonModifier, Converter={StaticResource ToggleButton_To_Visibility}}"/>
+                                </Canvas>
+                                <Viewbox>
+                                    <Image Name="ImageBatiment">
+                                        <Image.Source>
+                                            <Binding Path="Image" Converter="{StaticResource StringToImageConverter}" ConverterParameter="batiments"/>
+                                        </Image.Source>
+                                    </Image>
+                                </Viewbox>
+                            </DockPanel>
+                        </Border>
+                    </Border>
+                    <Grid Grid.Row="2" Margin="30,8,30,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0" Style="{StaticResource styleBoutonNoirMoins}" Click="Button_Click_SupprEtat"
+                                Visibility="{Binding ElementName=ToggleButtonModifier, Path=IsChecked, Converter={StaticResource ToggleButton_To_Visibility}}">
+                            <Button.ToolTip>
+                                <ToolTip>
+                                    <TextBlock>Supprimer le dernier niveau de ce bâtiment</TextBlock>
+                                </ToolTip>
+                            </Button.ToolTip>
+                        </Button>
+                        <RadioButton Name="RadioButton1" Grid.Column="1" Content="I" IsEnabled="False" Checked="RadioButton_Checked"/>
+                        <RadioButton Name="RadioButton2" Grid.Column="2" Content="II" IsEnabled="False" Checked="RadioButton_Checked"/>
+                        <RadioButton Name="RadioButton3" Grid.Column="3" Content="III" IsEnabled="False" Checked="RadioButton_Checked"/>
+                        <Button Grid.Column="4" Style="{StaticResource styleBoutonNoirPlus}" Click="Button_Click_AjouterEtat"
+                                Visibility="{Binding ElementName=ToggleButtonModifier, Path=IsChecked, Converter={StaticResource ToggleButton_To_Visibility}}">
+                            <Button.ToolTip>
+                                <ToolTip>
+                                    <TextBlock>Ajouter un niveau à ce bâtiment</TextBlock>
+                                </ToolTip>
+                            </Button.ToolTip>
+                        </Button>
+                    </Grid>
+                </Grid>
+
+                <!-- [1:0] Image -->
+                <Viewbox Name="ViewboxImageFaction" Grid.Row="1" Grid.Column="0" Margin="5">
+                    <Image Margin="3">
+                        <Image.Source>
+                            <Binding Path="Image" Converter="{StaticResource StringToImageConverter}" ConverterParameter="factions"/>
+                        </Image.Source>
+                    </Image>
+                </Viewbox>
+                <Canvas Grid.Row="1" Grid.Column="0" Panel.ZIndex="10">
+                    <Button Style="{StaticResource styleButtonImporter}" Content="IMPORTER" Width="130"
+                            Canvas.Bottom="15" Canvas.Right="15" Click="ImporterImg_Faction_Click"
+                            Visibility="{Binding IsChecked, ElementName=ToggleButtonModifier, Converter={StaticResource ToggleButton_To_Visibility}}"/>
+                </Canvas>
+
+                <!-- [1:1] Detail TypeBat -->
+                <Border Grid.Row="1" Grid.Column="1" Margin="5" BorderThickness="2" BorderBrush="#FF30462E" >
+                    <Border Name="DetailsTypeBat" Background="{StaticResource grad_base}" BorderThickness="4" BorderBrush="#FF284D2D">
+                        <StackPanel Margin="10" HorizontalAlignment="Stretch" >
+                            <DockPanel>
+                                <!--<Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>-->
+                                <ToggleButton Name="ToggleButtonEdit2" Style="{StaticResource BoutonEdit}"
+                                              DockPanel.Dock="Right" HorizontalAlignment="Right" Checked="ToggleButtonEdit2_Checked"
+                                              Visibility="{Binding IsChecked, ElementName=ToggleButtonModifier, Converter={StaticResource ToggleButton_To_Visibility}}"/>
+                                <TextBlock Text="{Binding Nom}" Margin="0,0,0,5" Foreground="{StaticResource foreground_base_selected}"
+                                       FontSize="18" TextDecorations="Underline" HorizontalAlignment="Center"/>
+                            </DockPanel>
+                            <TextBlock Name="TextBlockTBDescription"  Text="{Binding Description}" TextWrapping="Wrap" Foreground="{StaticResource foreground_base}"/>
+                            <TextBox Name="TextBoxTBDescription" Text="{Binding Description}" TextWrapping="Wrap" Visibility="Collapsed"
+                                     LostKeyboardFocus="TextBoxTBDescription_LostKeyboardFocus" KeyDown="TextBoxTBDescription_KeyDown"/>
+                        </StackPanel>
+                    </Border>
+                </Border>
+                <!-- [1:2] Detail EtatBat -->
+                <Grid Name="GridDetailsEtat" Grid.Row="1" Grid.Column="2" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Margin="0,0,5,0" BorderThickness="2" BorderBrush="#FF30462E" >
+                        <Border Background="{StaticResource grad_base}" BorderThickness="4" BorderBrush="#FF284D2D">
+                            <StackPanel Margin="10" Visibility="{Binding DataContext, ElementName=GridDetailsEtat, Converter={StaticResource DataContext_To_Visibility}}">
+                                <local:UserControlEtat Champ="Pdv" Label="Point de vie" Icone="Pdv.png"
+                                                       IsModifiable="{Binding IsChecked, ElementName=ToggleButtonModifier}"/>
+                                <local:UserControlEtat Champ="Cout" Label="Coût" Icone="Cout.png"
+                                                       IsModifiable="{Binding IsChecked, ElementName=ToggleButtonModifier}"/>
+                                <local:UserControlEtat Champ="TpsDeConstruct" Label="Temps de construction" Icone="TpsDeConstruct.png"
+                                                       IsModifiable="{Binding IsChecked, ElementName=ToggleButtonModifier}"/>
+                                <local:UserControlEtat Champ="Description" Label="Description" Icone="Description.png"
+                                                       IsModifiable="{Binding IsChecked, ElementName=ToggleButtonModifier}"/>
+                            </StackPanel>
+                        </Border>
+                    </Border>
+                    <Border Grid.Column="1" Margin="5,0,0,0" BorderThickness="2" BorderBrush="#FF30462E" >
+                        <Border Background="{StaticResource grad_base}" BorderThickness="4" BorderBrush="#FF284D2D">
+                            <StackPanel Margin="10" Visibility="{Binding DataContext, ElementName=GridDetailsEtat, Converter={StaticResource DataContext_To_Visibility}}">
+                                <local:UserControlEtat Champ="TourDeDefense" Label="Tour de défense" Icone="TourDeDefense.png"
+                                                       IsModifiable="{Binding IsChecked, ElementName=ToggleButtonModifier}"/>
+                                <local:UserControlEtat Champ="Raccourci" Label="Raccourci" Icone="Raccourci.png"
+                                                       IsModifiable="{Binding IsChecked, ElementName=ToggleButtonModifier}"/>
+                                <local:UserControlEtat Champ="UnitesRecrutables" Label="Unités recrutables" Icone="UnitesRecrutables.gif"
+                                                       IsModifiable="{Binding IsChecked, ElementName=ToggleButtonModifier}"/>
+                                <local:UserControlEtat Champ="BonusOctroyes" Label="Bonus octroyés" Icone="BonusOctroyes.png"
+                                                       IsModifiable="{Binding IsChecked, ElementName=ToggleButtonModifier}"/>
+                            </StackPanel>
+                        </Border>
+                    </Border>
+                </Grid>
+            </Grid>
+        </DockPanel>
+        <Grid Grid.Row="1" Background="Black" Height="42">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Name="Info1" Grid.Row="0" VerticalAlignment="Center"
+                       Foreground="LightGray" FontWeight="Bold" FontFamily="Arial"/>
+            <TextBlock Name="Info2"  Grid.Row="1" VerticalAlignment="Center"
+                       Foreground="White" FontWeight="Bold" FontFamily="Arial"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,62 @@
+﻿<Application x:Class="IHM.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <LinearGradientBrush x:Key="grad_base" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF2E382C" Offset="0"/>
+            <GradientStop Color="#FF546E41" Offset="1"/>
+        </LinearGradientBrush>
+        
+        <LinearGradientBrush x:Key="grad_base_selected" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF2E382C" Offset="0"/>
+            <GradientStop Color="#FF7EC146" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="grad_base_disabled" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF181A19" Offset="0"/>
+            <GradientStop Color="#FF232B1C" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="grad_modifiable" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF18181A" Offset="0"/>
+            <GradientStop Color="#FF2D3763" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="grad_modifiable_selected" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF2E382C" Offset="0"/>
+            <GradientStop Color="#FF329ED1" Offset="1"/>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="foreground_base" Color="#FF8DB06A"/>
+        <SolidColorBrush x:Key="foreground_base_selected" Color="#FFD0F79E"/>
+        <SolidColorBrush x:Key="foreground_disabled" Color="#FF35432A"/>
+        <SolidColorBrush x:Key="foreground_modifiable" Color="#FF36476A"/>
+        <SolidColorBrush x:Key="foreground_modifiable_selected" Color="#FFB7F0F9"/>
+
+
+        <Style x:Key="BoutonEdit" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Grid Name="ToggleButtonGrid" Height="22" Width="22">
+                            <Border Name="BorderBoutonEit" BorderThickness="2" BorderBrush="Gray">
+                                <Image Height="20" Width="20" Source="images/icones/Modifier.png" />
+                            </Border>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="BorderBoutonEit" Property="BorderBrush" Value="Green"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="BorderBoutonEit" Property="BorderBrush" Value="LightGreen"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>
